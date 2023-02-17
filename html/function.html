@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+    <button onclick="console.log(a(90, 89))">Call Function</button>
+    <script>
+        // function
+        function welcomeMessage(){
+            alert("Welcome to JavaScript Function");
+        }
+        // call the function
+        // welcomeMessage()
+        // function with parameter
+        function sum(n1 = 10, n2 = 40){
+            let newNumber = 90
+            return n1 + n2
+        }
+        // console.log(sum(30, 70));
+        let result = sum(49)
+        console.log(result);
+
+        // let animals = ["cat", "dog"]
+        // animals.map(value => {
+
+        // })
+        
+        // normal
+        let x = function(x, y){
+            return x * y
+        }
+        console.log(x(2, 2));
+
+        // arrow function to sum 2 value
+        let a = (x, y) => x + y
+        console.log(a(5, 5));
+
+
+        let products = [
+            {
+                "id": 1,
+                "title": "Apple Products",
+                "price": 100,
+                "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+                "images": [
+                "https://api.lorem.space/image/furniture?w=640&h=480&r=9541",
+                ],
+                "category": {
+                    "id": 3,
+                    "name": "Furniture",
+                }
+            },
+            {
+                "id": 2,
+                "title": "Sumsung Products",
+                "price": 200,
+                "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+                "images": [
+                "https://api.lorem.space/image/furniture?w=640&h=480&r=9541",
+                ],
+                "category": {
+                    "id": 3,
+                    "name": "Furniture",
+                }
+            }
+        ]
+
+        // products.map(function(res){
+        //     console.log(res);
+        // })
+
+        // products.map(res => console.log(res))
+
+        fetch("https://fakestoreapi.com/products")
+        .then((res) => res.json())
+        .then((json) => console.log(json));
+
+        
+
+
+    </script>
+</body>
+</html>

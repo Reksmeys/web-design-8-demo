@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript First Day</title>
+    <link rel="stylesheet" href="./../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <!-- <button onclick="changeImage()">Change Image</button>
+    <h1>Welcome to JavaScript</h1>
+    
+    <img src="https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_960_720.jpg" alt="">
+    <script src="./../js/index.js"></script> -->
+    <h1 id="demo">Good evening, mey</h1>
+    <script>
+        // string data type
+        var fullname = "Mey";
+        var greeting = "<h1>Hey, " + fullname + "Are you a student?</h1>"
+        var dataTable = `
+        <table class="table"> 
+            <thead>  
+                <tr> 
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th scope="row">1</th>
+                <td>${fullname}</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                </tr>
+                <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                </tr>
+                <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+                </tr>
+            </tbody>
+            </table>
+        `
+        console.log(fullname)
+        document.writeln(dataTable);
+
+        // var H1 = document.getElementById("demo")
+        var H1 = document.querySelector("h1")
+        console.log(H1);
+
+        // data type number
+        var money = 3e6
+        var x = 0.1, y = 0.2
+        var sum = x + y
+        console.log(sum)
+        console.log(sum == 0.3);
+        var a = "10" 
+        var b = 10
+        var converted = parseInt(a)
+        var sum = converted + b
+        console.log(sum);
+
+        // boolean
+        var isYoung = true;
+        var isOld = false;
+        // undefined
+        let age; // undefined
+
+        // null
+        let student = null
+
+        // object
+        let teacher = {
+            fullname: "Mom Reksmey",
+            age: 30,
+            gender: "female",
+            greeting: function(){
+                return "Welcome to student"
+            },
+            hobby: ["Sing", "Research", "Writing Content"],
+            category: {
+                id: 1,
+                title: "Girl"
+            },
+            isDelete: false
+        }
+        console.log(teacher.greeting());
+        console.log(teacher.fullname);
+
+
+        //  Operator
+       //  1. Assignment ( = )
+        let content = "Hello, "
+        content += "Vira"
+        content += " Reksmey"
+        content += "Mengly"
+        document.writeln(content)
+
+        var num1 = 3
+        let num2 = num1 *= 2
+        console.log(num2);
+        
+        // ++ , --
+        let myNum1 = 5
+        let myNum2 = 2
+
+        let myRemainder = myNum1%myNum2
+        console.log('remain :>> ', myRemainder);
+
+
+ 
+
+
+
+
+
+
+    </script>
+</body>
+</html>

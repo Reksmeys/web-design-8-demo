@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Array</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+  <div class="container mt-3">
+    <div class="row g-2">
+      
+    </div>
+  </div>
+  <script>
+      // get selector
+      let ROW = document.querySelector(".row")
+      console.log(ROW);
+      let proCard = ""
+      // fetching resources
+      fetch("https://api.escuelajs.co/api/v1/products")
+      .then(res => res.json())
+      .then(products => {
+          products.map(product => {
+              proCard += `
+                  <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                  <div class="card shadow-sm border-0">
+                  <div class="card-body">
+                      <img src=${product.images[0]} class="img-fluid" />
+                      <p class="card-text text-truncate mt-2">${product.description}</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                      </div>
+                      <small class="text-muted">${product.id} mins</small>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+          `
+          })
+
+          ROW.innerHTML += proCard
+
+      })
+  </script>
+</body>
+</html>

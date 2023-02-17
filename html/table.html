@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Render To Table</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Prices</th>
+                <th scope="col">Photo</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+            </tbody>
+          </table>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+        </div>
+    </div>
+
+    <div class="container mt-4">
+  
+            <div class="mb-3">
+              <label for="score" class="form-label">Student Scores</label>
+              <input type="text" class="form-control" id="score" placeholder="Enter Student Scores">
+            </div>
+            
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-primary" type="button" id="calculate">Grade Calculation</button>
+              </div>
+            <h1 id="result"></h1>
+
+    </div>
+
+    <script>
+        //// get selector
+        let ROW = document.querySelector(".row")
+        // 1. get selector tbody
+        let TBODY = document.querySelector("tbody")
+        // create mock data
+        let products = [
+            {
+                "id": 1,
+                "title": "Apple Products",
+                "price": 100,
+                "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+                "images": [
+                "https://api.lorem.space/image/furniture?w=640&h=480&r=9541",
+                ],
+                "category": {
+                    "id": 3,
+                    "name": "Furniture",
+                }
+            },
+            {
+                "id": 2,
+                "title": "Sumsung Products",
+                "price": 200,
+                "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+                "images": [
+                "https://api.lorem.space/image/furniture?w=640&h=480&r=9541",
+                ],
+                "category": {
+                    "id": 3,
+                    "name": "Furniture",
+                }
+            }
+        ]
+        console.log(products);
+        // render to table
+        products.map(p => {
+            console.log(p.title);
+            // document.write(`<h1>${p.title}</h1>`)
+            // render to tbody
+            TBODY.innerHTML += `
+                <tr>
+                    <th scope="row">${p.id}</th>
+                    <td>${p.title}</td>
+                    <td>${p.price}</td>
+                    <td>
+                        <img src=${p.images[0]} alt="product images" style="width: 100px" />
+                    </td>
+                </tr>
+            
+            `  
+        })
+
+        // render to card
+
+        // let card = `
+        // <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        //           <div class="card shadow-sm border-0">
+        //           <div class="card-body">
+        //               <img src=${product.images[0]} class="img-fluid" />
+        //               <p class="card-text text-truncate mt-2">${product.description}</p>
+        //               <div class="d-flex justify-content-between align-items-center">
+        //               <div class="btn-group">
+        //                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+        //                   <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+        //               </div>
+        //               <small class="text-muted">${product.id} mins</small>
+        //               </div>
+        //           </div>
+        //           </div>
+        //       </div>
+        
+        // `
+
+        // if else statement
+        let BTN = document.querySelector("#calculate")
+        let scores = document.querySelector("#score")
+        let msg = ""
+        BTN.addEventListener("click", function(){
+            console.log("BTN click");
+            // console.log(scores.value);
+            let s = parseInt(scores.value)
+            if (s >= 95 && s <= 100){
+                msg = "Congratulation! You got grade A."
+            }
+            else if (s >= 90 && s <= 94){
+                msg = "Congratulation! You got grade B."
+            }
+            else if (s >= 80){
+                msg = "Congratulation! You got grade C."
+            }
+            else if (s >= 70){
+                msg = "Congratulation! You got grade D."
+            }
+            else if (s >= 60){
+                msg = "Congratulation! You got grade E."
+            }
+            else{
+                msg = "So Sad! You got grade F."
+            }
+            console.log(msg);
+            document.querySelector("#result").innerHTML = `<h1>${msg}</h1>`
+
+        })
+        
+
+        
+    </script>
+</body>
+</html>
